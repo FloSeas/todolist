@@ -30,6 +30,13 @@ class Tasklist
 
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=255)
+     */
+    private $name;
+    
+    /**
      * Get id
      *
      * @return integer 
@@ -43,7 +50,7 @@ class Tasklist
      * Set color
      *
      * @param string $color
-     * @return List
+     * @return Tasklist
      */
     public function setColor($color)
     {
@@ -53,12 +60,36 @@ class Tasklist
     }
 
     /**
-     * Get color
-     *
-     * @return string 
-     */
+    * Get color
+    *
+    * @return string 
+    */
     public function getColor()
     {
         return $this->color;
     }
+    
+     /**
+     * Set name
+     *
+     * @param string $name
+     * @return Tasklist
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+    
+    /**
+    * Get name
+    *
+    * @return string 
+    */
+    public function getName()
+    {
+        return $this->name;
+    }
+
 }
