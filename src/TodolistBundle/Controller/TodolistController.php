@@ -10,7 +10,7 @@ class TodolistController extends Controller
     /**
      * @Route("/", name="homepage")
      */
-    public function indexAction()
+    public function ShowAction()
     {
         return $this->render('default/index.html.twig');
     }

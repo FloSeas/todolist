@@ -5,12 +5,12 @@ namespace TodolistBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * List
+ * tasklist
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="TodolistBundle\Entity\Repository\ListRepository")
+ * @ORM\Entity(repositoryClass="TodolistBundle\Entity\Repository\tasklistRepository")
  */
-class List
+class Tasklist
 {
     /**
      * @var integer
