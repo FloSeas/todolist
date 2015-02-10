@@ -1,0 +1,15 @@
+parameters:
+    todo.task.type.class: TodolistBundle/Form/Type/TaskType
+    todo.tasklist.type.class: TodolistBundle/form/Type/TasklistType
+    
+services:
+
+    # FORM TYPE
+    todo.task.type:
+        class: %todo.task.type.class%
+        tags:
+            - { name: form.type, alias: task }
+    todo.task.type:
+        class: %todo.tasklist.type.class%
+        tags:
+            - { name: form.type, alias: tasklist }
