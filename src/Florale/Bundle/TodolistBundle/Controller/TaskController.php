@@ -12,7 +12,7 @@ class TaskController extends Controller
     /**
      * @Route("/", name="task_list")
      */
-    public function showAction()
+    public function listAction()
     {
         return $this->render('Task/list.html.twig');
     }
@@ -42,7 +42,7 @@ class TaskController extends Controller
             $em->flush();
             return $this->redirect($this->generateUrl('task_edit', array('id' => $task->getId())));
         }
-        return $this->render('TodoListBundle:task:edit.html.twig', array(
+        return $this->render('TodoListBundle:Task:edit.html.twig', array(
             'task' => $task,
             'form'   => $form->createView()
         ));

@@ -14,7 +14,7 @@ class TasklistController extends Controller
      */
     public function listAction()
     {
-        return $this->render('TodoListBundle:tasklist:list.html.twig');
+        return $this->render('TodoListBundle:Tasklist:list.html.twig');
     }
      /**
      * @Route("/new", name="tasklist_new")
@@ -42,7 +42,7 @@ class TasklistController extends Controller
             $em->flush();
             return $this->redirect($this->generateUrl('tasklist_edit', array('id' => $tasklist->getId())));
         }
-        return $this->render('TodoListBundle:tasklist:edit.html.twig', array(
+        return $this->render('TodoListBundle:Tasklist:edit.html.twig', array(
             'tasklist' => $tasklist,
             'form'   => $form->createView()
         ));
