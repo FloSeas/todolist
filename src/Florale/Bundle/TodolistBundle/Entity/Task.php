@@ -1,6 +1,6 @@
 <?php
 
-namespace TodolistBundle\Entity;
+namespace Florale\Bundle\TodolistBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
