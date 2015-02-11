@@ -1,6 +1,6 @@
 <?php
 
-namespace TodolistBundle\Entity\Repository;
+namespace Florale\Bundle\TodolistBundle\Entity\Repository;
 
 use Doctrine\ORM\EntityRepository;
 

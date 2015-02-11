@@ -1,11 +1,11 @@
 <?php
 
-namespace TodolistBundle\Form\Type;
+namespace Florale\Bundle\TodolistBundle\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class TasklistType extends AbstractType
+class TaskType extends AbstractType
 {
         /**
      * @param FormBuilderInterface $builder
@@ -15,7 +15,9 @@ class TasklistType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('color');
+            ->add('dueDate')
+            ->add('description')
+            ->add('state');
     }
     /**
      * @param OptionsResolverInterface $resolver
@@ -23,7 +25,7 @@ class TasklistType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'TodolistBundle\Entity\Tasklist'
+            'data_class' => 'TodolistBundle\Entity\Task'
         ));
     }
     /**
@@ -31,6 +33,6 @@ class TasklistType extends AbstractType
      */
     public function getName()
     {
-        return 'tasklist';
+        return 'task';
     }
 }
