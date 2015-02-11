@@ -1,6 +1,6 @@
 <?php
 
-namespace TodolistBundle;
+namespace Florale\Bundle\TodolistBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

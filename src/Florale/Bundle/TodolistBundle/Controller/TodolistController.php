@@ -1,6 +1,6 @@
 <?php
 
-namespace TodolistBundle\Controller;
+namespace Florale\Bundle\TodolistBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -16,7 +16,7 @@ class TodolistController extends Controller
     }
     
      /**
-     * @Route("/", name="homepage")
+     * @Route("/", name="addlist")
      */
     public function addAction()
     {
