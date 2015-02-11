@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% block head %}
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+        <link rel="stylesheet" type="text/css" href="{{ asset('bundles/todolist/vendor/bootstrap/css/bootstrap.css') }}" media="screen" />        {% block stylesheets %}{% endblock %}
+
+        <script type="text/javascript" src="{{ asset('bundles/todolist/vendor/jquery/jquery.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/todolist/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+        {% block javascripts %}{% endblock %}
+        <title>{% block title %}{% endblock %}TODOLIST</title>
+    {% endblock %}
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <table>
+            <tr>
+                <td class="cell-title" rowspan="2">
+                    <h1><span>todolist</span></h1>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+
+    <div class="footer">
+        {% block footer %}&copy; {{ "now"|date("Y") }} Copyright All{% endblock %}
+    </div>
+</div>
+
+{% block javascripts_scripts %}{% endblock %}
+
+{# Block JS Ready #}
+<script type="text/javascript">
+    $(document).ready(function() {
+        {% block javascripts_scripts_ready %}{% endblock %}
+    });
+</script>
+</body>
+</html>
