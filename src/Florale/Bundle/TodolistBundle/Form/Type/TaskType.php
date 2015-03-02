@@ -25,7 +25,7 @@ class TaskType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'TodolistBundle\Entity\Task'
+            'data_class' => 'Florale\Bundle\TodolistBundle\Entity\Task'
         ));
     }
     /**

@@ -1,0 +1,57 @@
+{% extends '::base.html.twig' %}
+
+    {% import 'DatathekePagerBundle:Pager:bootstrap3.html.twig' as helper %}
+
+    {% block stylesheets %}
+        {{ parent() }}
+        {{ helper.stylesheets() }}
+    {% endblock %}
+
+    {% block javascripts %}
+        {{ parent() }}
+        {{ helper.javascripts() }}
+    {% endblock %}
+
+    {% block body %}
+        <div class="container">
+            <h1>Task List</h1>
+            <a class="btn btn-default" href="{{ path('task_new') }}" onclick="">
+                <i class="icon-plus-sign-alt"></i> {{ "task.button.new"|trans }}
+            </a>
+            <form action="{{ pager_form_path(pager) }}" method="post">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        {{ helper.toolbar(pager) }}
+                    </div>
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>{{ helper.orderBy(pager, 'name', 'name') }}</th>
+                                <th>{{ helper.orderBy(pager, 'dueDate', 'dueDate') }}</th>
+                                <th>{{ helper.orderBy(pager, 'description', 'Description') }}</th>
+                                <th>{{ helper.orderBy(pager, 'state', 'State') }}</th>
+                            </tr>
+                            <tr>
+                                <th>{{ helper.filter(pager, 'name') }}</th>
+                                <th>{{ helper.filter(pager, 'dueDate') }}</th>
+                                <th>{{ helper.filter(pager, 'description') }}</th>
+                                <th>{{ helper.filter(pager, 'state') }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for row in pager.items %}
+                                <tr>
+                                    <td>{{ row.name }}</td>
+                                    <td>{{ row.dueDate }}</td>
+                                    <td>{{ row.description }}</td>
+                                    <td>{{ row.state }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+                {{ helper.paginate(pager) }}
+            </form>
+        </div>
+    {% endblock %}

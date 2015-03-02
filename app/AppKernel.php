@@ -17,6 +17,7 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Florale\Bundle\TodolistBundle\TodolistBundle(),
+            new Datatheke\Bundle\PagerBundle\DatathekePagerBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

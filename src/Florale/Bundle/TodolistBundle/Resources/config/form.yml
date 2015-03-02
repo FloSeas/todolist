@@ -9,6 +9,7 @@ services:
         class: %todo.task.type.class%
         tags:
             - { name: form.type, alias: task }
+            
     todo.task.type:
         class: %todo.tasklist.type.class%
         tags:

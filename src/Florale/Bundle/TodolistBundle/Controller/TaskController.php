@@ -14,7 +14,11 @@ class TaskController extends Controller
      */
     public function listAction()
     {
-        return $this->render('Task/list.html.twig');
+        $pager = $this->get('datatheke.pager')->createHttpPager('TodolistBundle:Task');
+        $view = $pager->handleRequest($this->getRequest());
+
+        return $this->render('TodolistBundle:Task:list.html.twig',
+                array('pager' => $view));
     }
      /**
      * @Route("/new", name="task_new")
