@@ -1,6 +1,6 @@
 parameters:
-    todo.task.type.class: Florale/Bundle/TodolistBundle/Form/Type/TaskType
-    todo.tasklist.type.class: Florale/Bundle/TodolistBundle/form/Type/TasklistType
+    todo.task.type.class: Florale\Bundle\TodolistBundle\Form\Type\TaskType
+    todo.tasklist.type.class: Florale\Bundle\TodolistBundle\form\Type\TasklistType
     
 services:
 
