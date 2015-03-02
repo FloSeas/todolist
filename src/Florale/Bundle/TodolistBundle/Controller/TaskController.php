@@ -46,7 +46,7 @@ class TaskController extends Controller
             $em->flush();
             return $this->redirect($this->generateUrl('task_edit', array('id' => $task->getId())));
         }
-        return $this->render('TodoListBundle:Task:edit.html.twig', array(
+        return $this->render('TodolistBundle:Task:edit.html.twig', array(
             'task' => $task,
             'form'   => $form->createView()
         ));
