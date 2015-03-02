@@ -2,13 +2,14 @@
 
 namespace Florale\Bundle\TodolistBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * tasklist
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="TodolistBundle\Entity\Repository\tasklistRepository")
+ * @ORM\Entity(repositoryClass="Florale\Bundle\TodolistBundle\Entity\Repository\TasklistRepository")
  */
 class Tasklist
 {
@@ -27,6 +28,15 @@ class Tasklist
      * @ORM\Column(name="color", type="string", length=255)
      */
     private $color;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Task", mappedBy="tasklist", cascade={"remove"})
+     **/
+    private $tasks;
+    
+    public function __construct() {
+        $this->tasks = new ArrayCollection();
+    }
 
 
     /**
@@ -92,4 +102,37 @@ class Tasklist
         return $this->name;
     }
 
+
+    /**
+     * Add tasks
+     *
+     * @param \Florale\Bundle\TodolistBundle\Entity\Task $tasks
+     * @return Tasklist
+     */
+    public function addTask(\Florale\Bundle\TodolistBundle\Entity\Task $tasks)
+    {
+        $this->tasks[] = $tasks;
+
+        return $this;
+    }
+
+    /**
+     * Remove tasks
+     *
+     * @param \Florale\Bundle\TodolistBundle\Entity\Task $tasks
+     */
+    public function removeTask(\Florale\Bundle\TodolistBundle\Entity\Task $tasks)
+    {
+        $this->tasks->removeElement($tasks);
+    }
+
+    /**
+     * Get tasks
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getTasks()
+    {
+        return $this->tasks;
+    }
 }

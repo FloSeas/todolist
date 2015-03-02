@@ -1,0 +1,35 @@
+{% extends '::base.html.twig' %}
+
+{% use 'TodolistBundle:Tasklist:task_widget.html.twig' %}
+{% block stylesheets %}
+    <link href="{{ asset('bundles/todolist/css/colorpicker.css') }}" rel="stylesheet" />
+    {{ form_stylesheet(form) }}
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('js/jquery.js') }}"></script>
+    <script src="{{ asset('bundles/todolist/js/colorpicker.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.js') }}"></script>
+    <script src="{{ asset('bundles/todolist/js/taskutils.js') }}"></script>
+    {{ form_javascript(form) }}
+{% endblock %}
+{% block body %}
+
+    <h1>Task</h1>
+    {{  form_start(form, { 'style': 'horizontal' }) }}
+        {{ form_errors(form) }}
+    
+        {{ form_row(form.name, { 'label_col': 2, 'widget_col': 4}) }}
+        {{ form_row(form.color, { 'label_col': 2, 'widget_col': 4}) }}
+        {{ form_row(form.tasks, {'add_button': false}) }}
+        <div class="control-group" style="margin-bottom: 15px;">
+            <label class="control-label" for="inputName"> &nbsp; </label>
+            <div class="controls">
+                <button class="btn btn-info" onclick="return addCollectionItem('tasks');">
+                    <i class="icon-plus">{{ "tasks.button.add_label" | trans }}</i>
+                </button>
+            </div>
+        </div>
+        
+    {{  form_end(form) }}
+{% endblock %}

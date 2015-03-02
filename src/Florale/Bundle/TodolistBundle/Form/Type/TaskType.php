@@ -17,7 +17,25 @@ class TaskType extends AbstractType
             ->add('name')
             ->add('dueDate')
             ->add('description')
-            ->add('state');
+            ->add('tasklist', 'entity', array(
+                    'class' => 'TodolistBundle:Tasklist',
+                    'property' => 'name',
+                ))
+            ->add('state', 'choice', array(
+                'choices' => array(
+                    0 => 'new',
+                    1 => 'in progress',
+                    2 => 'finished',
+                    3 => 'archived'
+                    
+                )))
+            ->add('actions', 'form_actions', [
+                    'buttons' => [
+                        'save' => ['type' => 'submit', 'options' => ['label' => 'button.save']],
+                        'cancel' => ['type' => 'button', 'options' => ['label' => 'button.cancel']],
+                    ]
+                ]);    
+            
     }
     /**
      * @param OptionsResolverInterface $resolver

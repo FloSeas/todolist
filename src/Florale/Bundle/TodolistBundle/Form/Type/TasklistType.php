@@ -15,7 +15,18 @@ class TasklistType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('color');
+            ->add('color', 'genemu_jquerycolor')
+            ->add('tasks', 'collection', array(
+                'type' => new TaskType(),
+                'allow_add' => true,
+                'by_reference' => false,
+            ))
+            ->add('actions', 'form_actions', [
+                    'buttons' => [
+                        'save' => ['type' => 'submit', 'options' => ['label' => 'button.save']],
+                        'cancel' => ['type' => 'button', 'options' => ['label' => 'button.cancel']],
+                    ]
+                ]);
     }
     /**
      * @param OptionsResolverInterface $resolver

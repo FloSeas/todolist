@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new Florale\Bundle\TodolistBundle\TodolistBundle(),
             new Datatheke\Bundle\PagerBundle\DatathekePagerBundle(),
             new Braincrafted\Bundle\BootstrapBundle\BraincraftedBootstrapBundle(),
+            new Genemu\Bundle\FormBundle\GenemuFormBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

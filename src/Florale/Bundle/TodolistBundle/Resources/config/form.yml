@@ -1,6 +1,6 @@
 parameters:
     todo.task.type.class: Florale\Bundle\TodolistBundle\Form\Type\TaskType
-    todo.tasklist.type.class: Florale\Bundle\TodolistBundle\form\Type\TasklistType
+    todo.tasklist.type.class: Florale\Bundle\TodolistBundle\Form\Type\TasklistType
     
 services:
 
@@ -10,7 +10,7 @@ services:
         tags:
             - { name: form.type, alias: task }
             
-    todo.task.type:
+    todo.tasklist.type:
         class: %todo.tasklist.type.class%
         tags:
             - { name: form.type, alias: tasklist }

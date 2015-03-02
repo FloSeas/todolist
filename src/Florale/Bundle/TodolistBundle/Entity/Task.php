@@ -48,6 +48,12 @@ class Task
      * @ORM\Column(name="state", type="string", length=255)
      */
     private $state;
+    
+     /**
+     * @ORM\ManyToOne(targetEntity="Tasklist", inversedBy="tasks")
+     * @ORM\JoinColumn(name="tasklist_id", referencedColumnName="id")
+     **/
+    private $tasklist;
 
 
     /**
@@ -150,5 +156,28 @@ class Task
     public function getState()
     {
         return $this->state;
+    }
+
+    /**
+     * Set tasklist
+     *
+     * @param \Florale\Bundle\TodolistBundle\Entity\Tasklist $tasklist
+     * @return Task
+     */
+    public function setTasklist(\Florale\Bundle\TodolistBundle\Entity\Tasklist $tasklist = null)
+    {
+        $this->tasklist = $tasklist;
+
+        return $this;
+    }
+
+    /**
+     * Get tasklist
+     *
+     * @return \Florale\Bundle\TodolistBundle\Entity\Tasklist 
+     */
+    public function getTasklist()
+    {
+        return $this->tasklist;
     }
 }

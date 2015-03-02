@@ -2,6 +2,12 @@
 {% block body %}
 
     <h1>Task</h1>
-    {{  form_start(form) }}
+    {{  form_start(form, { 'style': 'horizontal' }) }}
+        {{ form_errors(form) }}
+    
+        {{ form_row(form.name, { 'label_col': 2, 'widget_col': 4}) }}
+        {{ form_row(form.dueDate, { 'label_col': 2, 'widget_col': 4}) }}
+        {{ form_row(form.description, { 'label_col': 2, 'widget_col': 4}) }}
+        {{ form_row(form.state, { 'label_col': 2, 'widget_col': 4}) }}
     {{  form_end(form) }}
 {% endblock %}
